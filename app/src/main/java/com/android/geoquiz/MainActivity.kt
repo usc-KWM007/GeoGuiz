@@ -14,7 +14,6 @@ import com.android.geoquiz.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
 private const val TAG = "MainActivity"
-private const val IS_CHEATER = "isCheater"
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val cheatLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        // Handle the result
+        // Handle the result from Cheat Activity
         if (result.resultCode == Activity.RESULT_OK) {
             quizViewModel.isCheater =
                 result.data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
